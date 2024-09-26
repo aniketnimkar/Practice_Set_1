@@ -15,12 +15,6 @@ const BooksList = () => {
     dispatch(deleteBook(bookId));
   };
 
-  useEffect(() => {
-    if (status === "idle") {
-      dispatch(fetchBooks());
-    }
-  }, [status, dispatch]);
-
   const handleEdit = (book) => {
     navigate("/edit-book", { state: { book } });
     // setEditingBook(book); // Set the book to edit
