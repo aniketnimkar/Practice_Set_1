@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 export const fetchBooks = createAsyncThunk("books/fetchBooks", async () => {
-  const response = await fetch("http://localhost:3000/books");
+  const response = await fetch("https://practice-set-1.vercel.app/books");
   if (!response.ok) {
     throw new Error("Failed to fetch books");
   }
@@ -12,9 +12,12 @@ export const fetchBooks = createAsyncThunk("books/fetchBooks", async () => {
 export const deleteBook = createAsyncThunk(
   "books/deleteBook",
   async (bookId) => {
-    const response = await fetch(`http://localhost:3000/books/${bookId}`, {
-      method: "DELETE",
-    });
+    const response = await fetch(
+      `https://practice-set-1.vercel.app/books/${bookId}`,
+      {
+        method: "DELETE",
+      }
+    );
     if (!response.ok) {
       throw new Error("Faild to delete book");
     }
@@ -25,7 +28,7 @@ export const deleteBook = createAsyncThunk(
 export const addBookAsync = createAsyncThunk(
   "books/addBook",
   async (newBook) => {
-    const response = await fetch("http://localhost:3000/books", {
+    const response = await fetch("https://practice-set-1.vercel.app/books", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -44,7 +47,7 @@ export const updateBookAsync = createAsyncThunk(
   "books/updateBook",
   async (updatedBook) => {
     const response = await fetch(
-      `http://localhost:3000/books/${updatedBook._id}`,
+      `https://practice-set-1.vercel.app/books/${updatedBook._id}`,
       {
         method: "PUT",
         headers: {
